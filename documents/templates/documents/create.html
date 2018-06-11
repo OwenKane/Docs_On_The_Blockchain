@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>
+
+    <h1> Create Document </h1>
+
+    <textarea cols="80" id="editor1" name="editor1" rows="10" >&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="https://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
+	</textarea>
+
+    <script>
+		// We need to turn off the automatic editor creation first.
+		CKEDITOR.disableAutoInline = true;
+
+		CKEDITOR.replace( 'editor1' );
+	</script>
+
+{% endblock %}

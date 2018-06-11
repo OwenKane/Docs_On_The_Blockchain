@@ -44,6 +44,7 @@ def login(request):
 
 
 def logout(request):
+    print("!!!!!!!!!!!!!!!!!!!!")
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
