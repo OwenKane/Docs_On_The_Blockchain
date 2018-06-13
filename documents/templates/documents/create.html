@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>
+{% load staticfiles %}
+
+    <script type="module" src="/static/deploy.js"></script>
+    <script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>
 
     <h1> Create Document </h1>
 
