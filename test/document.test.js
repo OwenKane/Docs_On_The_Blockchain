@@ -17,5 +17,18 @@ beforeEach(async () =>{
         .deploy({ data: bytecode })
         .send({from: accounts[0], gas: '1000000'});
 
-    lottery.setProvider(provider);
+    document.setProvider(provider);
+});
+
+describe('document', () => {
+
+    it('deploys a contract', () => {
+        assert.ok(document.options.address);
+    });
+
+    it('It can store a document', async() => {
+        await document.methods._storeDocument('Hello World', false).send({ from: accounts[0],  gas: '1000000' });
+        const doc = await document.methods._getDoc(0).call();
+        assert.equal(doc, 'Hello World');
+    });
 });
