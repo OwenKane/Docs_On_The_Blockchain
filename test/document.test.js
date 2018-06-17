@@ -29,6 +29,7 @@ describe('document', () => {
     it('It can store a document', async() => {
         await document.methods._storeDocument('Hello World', false).send({ from: accounts[0],  gas: '1000000' });
         const doc = await document.methods._getDoc(0).call();
+        console.log(interface);
         assert.equal(doc, 'Hello World');
     });
 });
