@@ -106,12 +106,12 @@ async function asyncCall() {
   console.log("Accounts: " + accounts);
   //await  myContract.methods._storeDocument('Hello World', false).send();
   const doc = await myContract.methods._getDoc(0).call();
-  //document.getElementById("me").innerHTML = doc;
-  console.log("Contract returned: ");
-  console.log(doc);
+  console.log("Contract returned: " + web3.utils.toAscii(doc));
+  CKEDITOR.instances.editor1.setData(web3.utils.toAscii(doc));
 }
 
 asyncCall();
+
 },{"web3":228}],2:[function(require,module,exports){
 module.exports = require('./register')().Promise
 
