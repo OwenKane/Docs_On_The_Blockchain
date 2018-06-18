@@ -91,13 +91,12 @@ const abi = [
   }
 ];
 
-
-async function asyncCall() {
+async function createDoc() {
   console.log('calling');
   accounts = await web3.eth.getAccounts();
 
   let myContract = new web3.eth.Contract(abi, address, { });
-  await  myContract.methods._storeDocument('Hello World', false).send();
+  let docData = asciiToHex(CKEDITOR.instances.editor1.getData());
+  await  myContract.methods._storeDocument(docData, false).send();
+  console.log('Done');
 }
-
-asyncCall();

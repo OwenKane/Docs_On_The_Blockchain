@@ -1,14 +1,9 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const Web3 = require('web3');
 let accounts;
-let document;
 let web3;
 
-
 web3 = new Web3(window.web3.currentProvider);
-console.log(web3);
-console.log("Web3 version: " + web3.version);
-
 const address = '0x159761E018B920Ca930f71e86E1Ba86eAE818C4F';
 const abi = [
   {
@@ -97,15 +92,14 @@ const abi = [
   }
 ];
 
+
 async function asyncCall() {
   console.log('calling');
   accounts = await web3.eth.getAccounts();
 
-  var myContract = new web3.eth.Contract(abi, address, { });
-
-  console.log("Accounts: " + accounts);
-  //await  myContract.methods._storeDocument('Hello World', false).send();
+  let myContract = new web3.eth.Contract(abi, address, { });
   const doc = await myContract.methods._getDoc(0).call();
+
   console.log("Contract returned: " + web3.utils.toAscii(doc));
   CKEDITOR.instances.editor1.setData(web3.utils.toAscii(doc));
 }

@@ -4,10 +4,16 @@
 
     <script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>
 
-    <h1> Edit Document </h1>
+    <div class="row">
+        <div class="col-10">
+            <h1> Edit Document </h1>
+        </div>
+        <div class="col" style="padding-top: 5px">
+            <button type="button" class="btn btn-success btn-block">Save Document</button>
+        </div>
+    </div>
 
-    <textarea cols="80" id="editor1" name="editor1" rows="10" >&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="https://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
-	</textarea>
+    <textarea cols="80" id="editor1" name="editor1" rows="10" >&lt;p&gt;Loading...&lt;/p&gt;</textarea>
 
     <script>
 		// We need to turn off the automatic editor creation first.
@@ -15,5 +21,5 @@
 
 		CKEDITOR.replace( 'editor1' );
 	</script>
-    <script type="module" src=""></script>
+    <script type="module" src="/static/myGetDocBundle.js"></script>
 {% endblock %}

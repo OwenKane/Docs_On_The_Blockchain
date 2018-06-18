@@ -92,19 +92,15 @@ const abi = [
   }
 ];
 
-
-async function asyncCall() {
+async function createDoc() {
   console.log('calling');
   accounts = await web3.eth.getAccounts();
 
   let myContract = new web3.eth.Contract(abi, address, { });
-  const doc = await myContract.methods._getDoc(0).call();
-
-  console.log("Contract returned: " + web3.utils.toAscii(doc));
-  CKEDITOR.instances.editor1.setData(web3.utils.toAscii(doc));
+  let docData = asciiToHex(CKEDITOR.instances.editor1.getData());
+  await  myContract.methods._storeDocument(docData, false).send();
+  console.log('Done');
 }
-
-asyncCall();
 
 },{"web3":228}],2:[function(require,module,exports){
 module.exports = require('./register')().Promise
