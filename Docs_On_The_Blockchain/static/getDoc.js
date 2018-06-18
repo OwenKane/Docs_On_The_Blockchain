@@ -3,11 +3,7 @@ let accounts;
 let document;
 let web3;
 
-
 web3 = new Web3(window.web3.currentProvider);
-console.log(web3);
-console.log("Web3 version: " + web3.version);
-
 const address = '0x159761E018B920Ca930f71e86E1Ba86eAE818C4F';
 const abi = [
   {
@@ -95,6 +91,7 @@ const abi = [
     "type": "function"
   }
 ];
+
 
 async function asyncCall() {
   console.log('calling');
