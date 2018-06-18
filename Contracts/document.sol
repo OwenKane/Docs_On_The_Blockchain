@@ -3,7 +3,7 @@ pragma solidity ^0.4.0;
 contract document {
 
     struct docData{
-        string docText;
+        bytes32 docText;
         bool isEncrypted;
     }
 
@@ -12,12 +12,12 @@ contract document {
     mapping (uint => address) public docToOwner;
     mapping (address => uint) ownerDocCount;
 
-    function _getDoc(uint _docId) view public returns (string){
-        require(msg.sender == docToOwner[_docId]);
+    function _getDoc(uint _docId) view public returns (bytes32){
+
         return docs[_docId].docText;
     }
 
-    function _storeDocument(string _docText, bool _isEncrypted) public returns (uint) {
+    function _storeDocument(bytes32 _docText, bool _isEncrypted) public returns (uint) {
         uint id = docs.push(docData(_docText, _isEncrypted)) - 1;
         docToOwner[id] = msg.sender;
         ownerDocCount[msg.sender]++;
