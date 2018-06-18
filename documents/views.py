@@ -8,3 +8,7 @@ def home(request):
 
 def create(request):
     return render(request, "documents/create.html")
+
+
+def edit(request):
+    return render(request, "documents/edit.html")
