@@ -1,3 +1,5 @@
 # Docs_On_The_Blockchain
 
-Django 2.0 frontend with python 3 and nodejs for handling the contracts
+Django2 middleware, serving HTML and JavaScript files to interact (using web3.js) with smart contract.
+
+Nodejs used to deploy and test contract.
