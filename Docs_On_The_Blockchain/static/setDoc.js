@@ -1,4 +1,5 @@
 const Web3 = require('web3');
+const $ = require('jQuery');
 let accounts;
 let web3;
 
@@ -100,3 +101,7 @@ async function createDoc() {
   await  myContract.methods._storeDocument(docData, false).send();
   console.log('Done');
 }
+
+$( "#createDocBtn" ).click(function() {
+  alert( "Handler for .click() called." );
+});

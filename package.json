@@ -21,6 +21,7 @@
   "homepage": "https://github.com/OwenKane/Docs_On_The_Blockchain#readme",
   "dependencies": {
     "ganache-cli": "^6.1.0",
+    "jQuery": "^1.7.4",
     "mocha": "^5.2.0",
     "require": "^2.4.20",
     "solc": "^0.4.24",
