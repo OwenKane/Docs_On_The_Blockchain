@@ -2,7 +2,6 @@ const Web3 = require('web3');
 let accounts;
 let web3;
 
-web3 = new Web3(window.web3.currentProvider);
 const address = '0x159761E018B920Ca930f71e86E1Ba86eAE818C4F';
 const abi = [
   {
@@ -91,6 +90,17 @@ const abi = [
   }
 ];
 
+if (typeof window.web3 !== 'undefined') {
+  // Use Mist/MetaMask's provider
+  web3 = new Web3(window.web3.currentProvider);
+  console.log('Found window.web3');
+} else {
+  console.log('No window.web3, using Infura');
+  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+  web3 = new Web3(new Web3.providers.HttpProvider(
+      "https://rinkeby.infura.io/2jyiuMt1W9jiQa7b3y0w"
+  ));
+}
 
 async function asyncCall() {
   console.log('calling');
