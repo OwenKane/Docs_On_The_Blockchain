@@ -107,10 +107,13 @@ async function createDoc() {
 
   let myContract = new web3.eth.Contract(abi, address, { });
   let docData = web3.utils.asciiToHex(CKEDITOR.instances.editor1.getData());
-  await  myContract.methods._storeDocument(docData, false).send({
+  let temp = await  myContract.methods._storeDocument(docData, false).send({
       from: accounts[0]
   });
-  console.log('Done');
+  console.log('Done0: ' + temp );
+  console.log('Done1: ' + temp.transactionIndex );
+  console.log('Done2: ' + temp[0] );
+  console.log('Done3: ' + temp.valueOf());
 }
 
 $( "#createDocBtn" ).click(function() {

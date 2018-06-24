@@ -23898,7 +23898,6 @@ if (typeof window.web3 !== 'undefined') {
   console.log('Found window.web3');
 } else {
   console.log('No window.web3, using Infura');
-  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
   web3 = new Web3(new Web3.providers.HttpProvider(
       "https://rinkeby.infura.io/2jyiuMt1W9jiQa7b3y0w"
   ));
@@ -23910,15 +23909,14 @@ async function createDoc() {
 
   let myContract = new web3.eth.Contract(abi, address, { });
   let docData = web3.utils.asciiToHex(CKEDITOR.instances.editor1.getData());
-  await  myContract.methods._storeDocument(docData, false).send({
+  let temp = await  myContract.methods._storeDocument(docData, false).send({
       from: accounts[0]
   });
-  console.log('Done');
+  console.log('Done0: ' + temp );
+  console.log('Done1: ' + temp.transactionIndex );
+  console.log('Done2: ' + temp[0] );
+  console.log('Done3: ' + temp.valueOf());
 }
-
-$(document).ready(function() {
-
-});
 
 $( "#createDocBtn" ).click(function() {
   createDoc();
