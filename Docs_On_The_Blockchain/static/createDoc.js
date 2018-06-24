@@ -96,7 +96,6 @@ if (typeof window.web3 !== 'undefined') {
   console.log('Found window.web3');
 } else {
   console.log('No window.web3, using Infura');
-  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
   web3 = new Web3(new Web3.providers.HttpProvider(
       "https://rinkeby.infura.io/2jyiuMt1W9jiQa7b3y0w"
   ));
@@ -113,10 +112,6 @@ async function createDoc() {
   });
   console.log('Done');
 }
-
-$(document).ready(function() {
-
-});
 
 $( "#createDocBtn" ).click(function() {
   createDoc();

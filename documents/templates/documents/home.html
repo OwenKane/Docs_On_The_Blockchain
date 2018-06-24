@@ -1,6 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1> You are at Home </h1>
+    <div class="container">
+        <h1 class="display-3">Hello!</h1>
+        <p>
+            The aim of this project is to create document sharing system that would save the user's work from
+            censorship/forced-deletion. Also give users the option to store documents in an encrypted state, so that if
+            the information is sensitive, the document cannot be read from the blockchain freely.
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Create a document »</a></p>
+    </div>
+
+
+    <div class="container" style="padding-top: 5%">
+        <h2>Your Documents</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
 
 {% endblock %}
