@@ -143,8 +143,8 @@ if (typeof window.web3 !== 'undefined') {
   ));
 }
 
-async function asyncCall() {
-  console.log('calling');
+async function getDocList() {
+  console.log('Calling getDocList');
   accounts = await web3.eth.getAccounts();
   let myContract = new web3.eth.Contract(abi, address, { });
   const docsIDs = await myContract.methods._getDocIDs(accounts[0]).call();
@@ -152,6 +152,19 @@ async function asyncCall() {
   console.log("accounts[0] returned: " + accounts[0]);
   console.log("Contract returned: " + docsIDs);
 
+  let docments = [];
+  let homeListDiv = document.getElementById("docListContainer");
+
+  for(let docID in docsIDs) {
+      const doc = await myContract.methods._getDoc(docID).call();
+      docments.push(doc);
+      console.log("Contract returned: " + web3.utils.toAscii(doc));
+
+      let docItem = document.createElement("li");
+      docItem.setAttribute("class", "list-group-item");
+	  docItem.innerHTML = web3.utils.toAscii(doc);
+	  homeListDiv.appendChild(docItem);
+  }
 }
 
-asyncCall();
+getDocList();
